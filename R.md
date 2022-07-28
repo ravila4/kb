@@ -2,7 +2,7 @@
 id: qz307gmzctlyybze4spt8ug
 title: R
 desc: ''
-updated: 1658971917643
+updated: 1658977948203
 created: 1658971568826
 ---
 
@@ -18,6 +18,7 @@ install.packages("package_name")
 
 - `languageserver`: Provides code completions and syntax highlighting for IDEs.
 - `r-httpgd`: Used by vscode to display plots in the webview.
+- `devtools`: R packaging utilities. e.g. Install packages from GitHub.
 
 
 ### R tools
