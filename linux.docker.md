@@ -1,8 +1,8 @@
 ---
 id: x9wl80kifhmlnfpu6n1xf28
 title: Docker
-desc: 'Basic notes about using docker'
-updated: 1647646343640
+desc: 'Basic notes about using Docker'
+updated: 1658971664765
 created: 1647060044895
 ---
 
