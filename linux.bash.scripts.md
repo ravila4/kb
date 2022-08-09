@@ -2,12 +2,12 @@
 id: pzlgua942o4wzmg1tjntnyc
 title: Scripts
 desc: ''
-updated: 1647060003327
+updated: 1660082822144
 created: 1647059949753
 ---
 
 This document collects basic syntax and best practices for writing
-BASH scripts.  
+BASH scripts.
 
 ## Starting scripts
 
@@ -23,7 +23,7 @@ set -euo pipefail
 The command `set` allows you to change shell options. The most useful flags are:
 
 -e
-: Stop execution when an error is encountered. 
+: Stop execution when an error is encountered.
 You can "catch" an error to prevent the shell from exiting by appending `|| true` after a failing command.
 
 -o pipefail
@@ -33,7 +33,7 @@ You can "catch" an error to prevent the shell from exiting by appending `|| true
 : Error out when shell encounters undefined variables by their values.
 
 -x
-: Debug mode. Prints every line and output, substituting variables 
+: Debug mode. Prints every line and output, substituting variables
 
 -f
 : Disable file globbing.
