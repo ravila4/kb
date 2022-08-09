@@ -2,7 +2,7 @@
 id: sisy0cg7b6ymseejpwfl9qs
 title: '2022-03-28'
 desc: ''
-updated: 1648501952436
+updated: 1660070577273
 created: 1648501952436
 traitIds:
   - journalNote
@@ -13,20 +13,20 @@ tags:
 
 To Do:
 
-- [ ] Fix 🐛: SmartAPI Cookie
+- [x] Fix 🐛: SmartAPI Cookie
   - [x] Find out wether the issue is present in Discovery app
-  - [ ] Difference w/ discovery app
-- [ ] Fix 🐛: SmartAPI data not displayed in UI
-- [ ] ES8 testing on MyChem.info
+  - [x] Difference w/ discovery app
+- [x] Fix 🐛: SmartAPI data not displayed in UI
+- [x] ES8 testing on MyChem.info
   - [x] Create index
   - [x] Run tests
       - Local failing. `"Error setting up ES for tests"`
       - Remote: passing ✅
   - [x] Fix ES tests
   - [x] Test with 0.11.x branch
-  - [ ] Test snapshot/restore
-  - [ ] Test with updated Python packages
-  - [ ] Test access to ES8 with certificates enabled
+  - [x] Test snapshot/restore
+  - [x] Test with updated Python packages
+  - [x] Test access to ES8 with certificates enabled
 
 
 

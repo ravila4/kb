@@ -2,7 +2,7 @@
 id: u37nknaxv5ugr0ps7rd1rwj
 title: '2022-04-11'
 desc: ''
-updated: 1649797914722
+updated: 1660070752376
 created: 1649705527778
 traitIds:
   - journalNote
@@ -10,7 +10,7 @@ traitIds:
 
 ## To Do:
 
-- [ ] #smartapi Login bug
+- [x] #smartapi Login bug
 - [ ] #biothings.mychem CURIE ID search for Annotations
 
 
