@@ -2,7 +2,7 @@
 id: lkcpotdu9x59v4mh3u6z077
 title: VS Code
 desc: 'How to do some useful things with VS Code'
-updated: 1660080688973
+updated: 1660081355970
 created: 1658941676755
 ---
 
@@ -44,6 +44,21 @@ Add to workspace settings.json:
 ## Technical Issues
 
 ### Fedora installation
+
+To install without using flatpak:
+
+```bash
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+cat <<EOF | sudo tee /etc/yum.repos.d/vscode.repo
+[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+```
 
 ### Escaping the Flatpak sandbox
 
