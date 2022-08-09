@@ -1,8 +1,8 @@
 ---
 id: vuf856wdzz48eh1v4j3ee5j
-title: Jq
+title: jq
 desc: ''
-updated: 1647065089091
+updated: 1660082153678
 created: 1647065071866
 ---
 
