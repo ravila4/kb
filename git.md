@@ -2,7 +2,7 @@
 id: 7bg28rkj42r5n52oxwezco3
 title: Git
 desc: ''
-updated: 1658334529035
+updated: 1660487452890
 created: 1647065150841
 ---
 
@@ -150,6 +150,12 @@ git am --committer-date-is-author-date < patch
 ```
 
 ## Undoing Stuff and Fixing Mistakes
+
+Undo changes to a file:
+
+```
+git checkout -- <file>
+```
 
 Undo a merge, keeping local changes
 
