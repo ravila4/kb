@@ -2,7 +2,7 @@
 id: rgk582xpzobmhxo68emjgo8
 title: MongoDB
 desc: ''
-updated: 1660844809732
+updated: 1660850878022
 created: 1647069024940
 ---
 
@@ -115,6 +115,17 @@ Insert single document to a collection:
 ## Clone a collection
 
 `db.collection1.aggregate([{ $match: {} }, { $out: "collection2" }])`
+
+## Dumping and restoring a collection
+
+This requires installing the mongodb [database tools package](https://www.mongodb.com/try/download/database-tools?tck=docs_databasetools).
+
+
+```
+mongodump --db=<old_db_name> --collection=<collection_name> --out=data/
+
+mongorestore --db=<new_db_name> --collection=<collection_name> data/<db_name>/<collection_name>.bson
+```
 
 ## Conditionals
 
