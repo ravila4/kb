@@ -2,7 +2,7 @@
 id: rgk582xpzobmhxo68emjgo8
 title: MongoDB
 desc: ''
-updated: 1647069024940
+updated: 1660844809732
 created: 1647069024940
 ---
 
@@ -108,6 +108,13 @@ Insert single document to a collection:
 
 `db.collection.drop()`
 
+## Rename a collection
+
+`db.collection.renameCollection("new_name")`
+
+## Clone a collection
+
+`db.collection1.aggregate([{ $match: {} }, { $out: "collection2" }])`
 
 ## Conditionals
 
