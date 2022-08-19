@@ -3,3 +3,5 @@
 .vscode/
 .backup
 node_modules/
+
+.next
