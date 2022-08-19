@@ -1,8 +1,8 @@
 ---
 id: 3k93bkk8clxzaajnf3h8r7r
-title: R
+title: Nvim-R
 desc: 'notes on R coding workflow with Vim'
-updated: 1660924703194
+updated: 1660931131592
 created: 1660924245181
 tags:
 - R
@@ -37,7 +37,7 @@ list below, the backslash represents the `<LocalLeader>`. Not all menu items and
 key bindings are enabled in all filetypes supported by the plugin (`r`,
 `rnoweb`, `rhelp`, `rrst`, `rmd`).
 
-#### Start/Close
+### Start/Close
 
 | Action             | Default shortcut |
 | ------------------ | ---------------- |
@@ -46,7 +46,7 @@ key bindings are enabled in all filetypes supported by the plugin (`r`,
 | Close R (no save)  | \\rq             |
 | Stop (interrupt) R | :RStop           |
 
-#### Send
+### Send
 
 | Action                                            | Default shortcut |
 | ------------------------------------------------- | ---------------- |
@@ -84,7 +84,7 @@ key bindings are enabled in all filetypes supported by the plugin (`r`,
 | Line (evaluate and insert the output a comment)   | \\o              |
 | All lines above the current one                   | \\su             |
 
-## Command
+### Command
 
 | Action                                          | Default shortcut |
 | ----------------------------------------------- | ---------------- |
@@ -130,7 +130,7 @@ key bindings are enabled in all filetypes supported by the plugin (`r`,
 | Undebug (function)                              | \\ud             |
 | Build tags file (cur dir)                       | :RBuildTags      |
 
-## Edit
+### Edit
 
 | Action                              | Default shortcut |
 | ----------------------------------- | ---------------- |
@@ -146,7 +146,7 @@ key bindings are enabled in all filetypes supported by the plugin (`r`,
 | Go (next R chunk)                   | \\gn             |
 | Go (previous R chunk)               | \\gN             |
 
-## Object Browser
+### Object Browser
 
 | Action               | Default shortcut |
 | -------------------- | ---------------- |
@@ -155,9 +155,102 @@ key bindings are enabled in all filetypes supported by the plugin (`r`,
 | Collapse (all lists) | \\r-             |
 | Toggle (cur)         | Enter            |
 
-## Help
+### Help
 
 | Action        | Default shortcut |
 | ------------- | ---------------- |
 | Help (plugin) |
 | Help (R)      | :Rhelp           |
+
+## Custom keybindings
+
+To customize a key binding you could put something like this in your `vimrc`:
+
+```vim
+function! s:customNvimRMappings()
+   nmap <buffer> <Leader>sr <Plug>RStart
+   imap <buffer> <Leader>sr <Plug>RStart
+   vmap <buffer> <Leader>sr <Plug>RStart
+endfunction
+augroup myNvimR
+   au!
+   autocmd filetype r call s:customNvimRMappings()
+augroup end
+```
+
+## Commands
+
+### Star/Close R
+
+- RStart
+- RCustomStart
+- RClose
+- RSaveClose
+
+### Clear R console
+
+- RClearAll
+- RClearConsole
+
+### Edit R code
+
+- RSimpleComment
+- RSimpleUnComment
+- RToggleComment
+- RRightComment
+- RIndent
+- RNextRChunk
+- RPreviousRChunk
+
+### Send code to R console
+
+- RSendLine
+- RSendAboveLines
+- RSendSelection
+- RSendMotion
+- RSendSelAndInsertOutput
+- RSendMBlock
+- RSendParagraph
+- RSendFunction
+- RSendFile
+
+### Send command to R
+
+- RHelp
+- RPlot
+- RSPlot
+- RShowArgs
+- RShowEx
+- RShowRout
+- RObjectNames
+- RObjectPr
+- RObjectStr
+- RViewDF (view data.frame or other object)
+- RViewDFs (view object in split window)
+- RViewDFv (view object in vertically split window)
+- RViewDFa (view object in split window above the current one)
+- RDputObj
+- RSetwd
+- RSummary
+- RListSpace
+
+### Support to Sweave and knitr
+
+- RBibTeXK (Knitr)
+- RKnit
+- RMakeHTML
+- RMakePDFK (Knitr)
+- RMakePDFKb (.Rmd, beamer)
+- RMakeODT (.Rmd, Open document)
+- RMakeWord (.Rmd, Word document)
+- RMakeRmd (rmarkdown default)
+- RMakeAll (rmarkdown all in YAML)
+- ROpenPDF
+- RNextRChunk
+- RPreviousRChunk
+
+### Support to Quarto
+
+- RQuartoRender
+- RQuartoPreview
+- RQuartoStop
