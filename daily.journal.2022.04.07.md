@@ -2,7 +2,7 @@
 id: w2cd8bd31a6vqoz9k6jbrf5
 title: '2022-04-07'
 desc: ''
-updated: 1660070739181
+updated: 1660918645621
 created: 1649351902937
 traitIds:
   - journalNote
@@ -16,8 +16,6 @@ traitIds:
 - [x] #smartapi Login bug
 - [ ] #biothings.mychem CURIE ID search for Annotations
 
-
-## #meetings.1on1
 
 MyChem:
   - Prioritize annotation CURIE search

@@ -1,18 +1,12 @@
 ---
-id: u37nknaxv5ugr0ps7rd1rwj
-title: '2022-04-11'
+id: a6uj29b5sg2arnnjvwz9w6y
+title: Biolink Model
 desc: ''
-updated: 1660070752376
-created: 1649705527778
-traitIds:
-  - journalNote
+updated: 1660919090748
+created: 1660918053432
 ---
 
-## To Do:
-
-- [x] #smartapi Login bug
-- [ ] #biothings.mychem CURIE ID search for Annotations
-
+https://biolink.github.io/biolink-model/
 
 ## CURIEs
 
@@ -35,7 +29,3 @@ Biolink model:
 - https://github.com/biolink/biolink-model/blob/master/biolink-model.yaml
 - https://github.com/biolink/biolink-model/blob/master/context.jsonld
 - https://nodenormalization-sri.renci.org/1.2/get_curie_prefixes
-
-
-## Current MyChem annotation regexes:
-

@@ -2,7 +2,7 @@
 id: sisy0cg7b6ymseejpwfl9qs
 title: '2022-03-28'
 desc: ''
-updated: 1660070577273
+updated: 1660918479508
 created: 1648501952436
 traitIds:
   - journalNote
@@ -14,7 +14,7 @@ tags:
 To Do:
 
 - [x] Fix 🐛: SmartAPI Cookie
-  - [x] Find out wether the issue is present in Discovery app
+  - [x] Find out whether the issue is present in Discovery app
   - [x] Difference w/ discovery app
 - [x] Fix 🐛: SmartAPI data not displayed in UI
 - [x] ES8 testing on MyChem.info
