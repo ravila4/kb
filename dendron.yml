@@ -26,7 +26,7 @@ workspace:
             fsPath: vault
             remote:
                 type: git
-                url: git@github.com:ravila4/notes.git
+                url: git@github.com:ravila4/kb.git
     journal:
         dailyDomain: daily
         name: journal
