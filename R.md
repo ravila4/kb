@@ -2,8 +2,10 @@
 id: qz307gmzctlyybze4spt8ug
 title: R
 desc: ''
-updated: 1659053027840
+updated: 1660924766770
 created: 1658971568826
+tags:
+- R
 ---
 
 ## R Basics
