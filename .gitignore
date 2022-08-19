@@ -1,3 +1,4 @@
 .dendron.cache.json
 .dendron.cache.*
 .vscode/
+.backup
