@@ -97,7 +97,8 @@ publishing:
     siteRootDir: docs
     seo:
         title: Ricardo's Notes
-        description: Personal Knowledge Base
+        description: My Personal Knowledge Base
+        author: Ricardo Avila
     github:
         enableEditLink: true
         editLinkText: Edit this page on GitHub
@@ -111,4 +112,5 @@ publishing:
     enableTaskNotes: true
     siteUrl: https://ravila4.github.io/
     assetsPrefix: /notes
+    theme: light
 version: 5
