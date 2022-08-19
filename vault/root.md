@@ -6,7 +6,7 @@ updated: 1660925077932
 created: 1647055090448
 ---
 
-## Welcome to my Knowledge Base!
+## Welcome to my Personal Knowledge Base!
 
 ### What is a knowledge base?
 
