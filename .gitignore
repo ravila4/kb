@@ -1,5 +1,6 @@
 .dendron.cache.json
 .dendron.cache.*
+.dendron*
 .vscode/
 .backup
 node_modules/
