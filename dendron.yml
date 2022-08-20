@@ -111,5 +111,5 @@ publishing:
     enablePrettyLinks: true
     enableTaskNotes: true
     siteUrl: https://ravila4.github.io/
-    assetsPrefix: /notes
+    assetsPrefix: /kb
 version: 5
