@@ -1,4 +1,4 @@
-eersion: 5
+version: 5
 dev:
     enablePreviewV2: true
 commands:
@@ -96,7 +96,7 @@ publishing:
     writeStubs: false
     siteRootDir: docs
     seo:
-        title: Ricardo's Notes
+        title: Home
         description: My Personal Knowledge Base
         author: Ricardo Avila
     github:
