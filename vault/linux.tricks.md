@@ -2,7 +2,7 @@
 id: wudaj6ca4t8b8fl0m4d0iv8
 title: Tricks
 desc: 'Linux one-liners and other tricks'
-updated: 1647065559175
+updated: 1661008977651
 created: 1647065488669
 ---
 
@@ -65,18 +65,24 @@ Grep PDF files:
 Convert format for multiple images:
 
 ```bash
-for file in *.jpg; do convert $file ${file/.jpg/.png}; done
+for file in *.jpg;
+  do convert $file ${file/.jpg/.png};
+done
 ```
 Resize multiple images:
 
 ```bash
-for file in *.jpg; do convert -quality  90 -resize 1000x1000 $file $file; done
+for file in *.jpg;
+  do convert -quality  90 -resize 1000x1000 $file $file;
+done
 ```
 
 Crop multiple images ("gravity" = north, south, east, west, center):
 
 ```bash
-for file in *jpg; do convert -extent 1000x1000 -gravity center $file $file; done
+for file in *jpg;
+  do convert -extent 1000x1000 -gravity center $file $file;
+done
 ```
 
 OCR an image:
@@ -88,7 +94,8 @@ OCR an image:
 Create a video from images in a folder. (Image file names must be indexed in order.)
 
 ```
-ffmpeg -framerate 30 -pattern_type glob -i '*.jpg' -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4
+ffmpeg -framerate 30 -pattern_type glob -i '*.jpg' -c:v libx264 \
+  -r 30 -pix_fmt yuv420p out.mp4
 ```
 
 ## More PDF Stuff

@@ -2,7 +2,7 @@
 id: 2zll2pw3nocj8zhn8t5opz7
 title: Pandas
 desc: ''
-updated: 1647056681299
+updated: 1661009177345
 created: 1647056190086
 ---
 
@@ -105,5 +105,6 @@ df.groupby('col').agg({"col1": np.sum, "col2": pd.Series.nunique})
 Spreadsheet-style pivot with aggregation:
 
 ```python
-table = pd.pivot_table(df, values='D', index=['A', 'B'], columns=['C'], aggfunc=np.sum)
+table = pd.pivot_table(
+    df, values='D', index=['A', 'B'], columns=['C'], aggfunc=np.sum)
 ```

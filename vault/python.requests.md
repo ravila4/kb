@@ -2,7 +2,7 @@
 id: i9y4qrcy19epqvrei47mvfk
 title: Requests
 desc: ''
-updated: 1651176389689
+updated: 1661009386767
 created: 1651162932662
 ---
 
@@ -29,7 +29,8 @@ requests.get(
 Or in a single line:
 
 ```python
-response=requests.get('https://api.github.com/search/repositories?q=requests+language:python')
+response=requests.get(
+    'https://api.github.com/search/repositories?q=requests+language:python')
 ```
 
 ### Body
@@ -127,11 +128,12 @@ Or even better:
 ```python
 http = requests.Session()
 
-assert_status_hook = lambda response, *args, **kwargs: response.raise_for_status()
+assert_status_hook = (
+    lambda response, *args, **kwargs: response.raise_for_status()
+)
 http.hooks["response"] = [assert_status_hook]
 
 http.get("https://api.github.com/user/repos?page=1")
-
 ```
 
 

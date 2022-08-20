@@ -2,7 +2,7 @@
 id: rgk582xpzobmhxo68emjgo8
 title: MongoDB
 desc: ''
-updated: 1660850878022
+updated: 1661007847758
 created: 1647069024940
 ---
 
@@ -124,7 +124,8 @@ This requires installing the mongodb [database tools package](https://www.mongod
 ```
 mongodump --db=<old_db_name> --collection=<collection_name> --out=data/
 
-mongorestore --db=<new_db_name> --collection=<collection_name> data/<db_name>/<collection_name>.bson
+mongorestore --db=<new_db_name> \
+  --collection=<collection_name> data/<db_name>/<collection_name>.bson
 ```
 
 ## Conditionals

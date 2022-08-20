@@ -2,7 +2,7 @@
 id: dh1u6blnzbdsuj0bvpkj86f
 title: Elasticsearch
 desc: ''
-updated: 1649363335462
+updated: 1661007800158
 created: 1647068990225
 ---
 
@@ -17,7 +17,8 @@ For ElasticSearch 8:
 ```bash
 docker network create elastic
 docker pull docker.elastic.co/elasticsearch/elasticsearch:8.1.0
-docker run -d -p 9200:9200 -p 9300:9300 --name elasticsearch_8 --net elastic -t docker.elastic.co/elasticsearch/elasticsearch:8.1.0
+docker run -d -p 9200:9200 -p 9300:9300 --name elasticsearch_8 \
+  --net elastic -t docker.elastic.co/elasticsearch/elasticsearch:8.1.0
 ```
 
 ### Disabling Elasticsearch Security Settings
@@ -60,7 +61,7 @@ cluster.initial_master_nodes:
 
 I ran into a virtual memory problem:
 
-`Elasticsearch: Max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]`
+> Elasticsearch: Max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 
 Solution:
 https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
@@ -93,14 +94,17 @@ curl --cacert http_ca.crt -u elastic:<password> https://localhost:9200
 Create an API key:
 
 ```
-curl -X POST --cacert http_ca.crt -u elastic:<password> https://localhost:9200/_security/api_key -H 'Content-Type: application/json' -d'{"name": "my_api_key"}'
+curl -X POST --cacert http_ca.crt -u elastic:<password> \
+  https://localhost:9200/_security/api_key \
+  -H 'Content-Type: application/json' -d'{"name": "my_api_key"}'
 ```
 The API key is the 'encoded' value in the JSON response.
 
 To connect with an API key:
 
 ```
-curl --cacert http_ca.crt -H "Authorization: ApiKey <encoded_api_key>" https://localhost:9200
+curl --cacert http_ca.crt -H \
+  "Authorization: ApiKey <encoded_api_key>" https://localhost:9200
 ```
 
 ## API
@@ -120,7 +124,8 @@ Some examples of common API uses.
 ```bash
 curl -XPOST 'http://localhost:9200/_aliases' -d '{
     "actions" : [
-        { "add" : { "index" : "mygeneset_20210323_k1udhp5n", "alias" : "mygeneset_current" } }
+        { "add" : { "index" : "mygeneset_20210323_k1udhp5n",
+          "alias" : "mygeneset_current" } }
     ]
 }' -H "Content-Type: application/json"
 ```
