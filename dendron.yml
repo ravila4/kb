@@ -112,5 +112,4 @@ publishing:
     enableTaskNotes: true
     siteUrl: https://ravila4.github.io/
     assetsPrefix: /notes
-    theme: light
 version: 5
