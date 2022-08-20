@@ -2,17 +2,22 @@
 id: i3e9kusp519n36iz1ioi387
 title: Ricardo's Notes
 desc: ''
-updated: 1660925077932
+updated: 1660958170145
 created: 1647055090448
 ---
 
 ## Welcome to my Personal Knowledge Base!
 
-### What is a knowledge base?
+![](/assets/images/profile.jpg)
 
-From Wikipedia:
->A knowledge base (KB) is a technology used to store complex structured and unstructured information used by a computer system.
+I am a bioinformatics programmer, currently working at the Su/Wu labs at the Scripps Research Institute.
 
-### A knowledge base for humans
+I enjoy learning about technology, science, and art.
 
-To me, a knowledge base is just a structured notebook or library of interconnected topics (think Wikipedia). My personal KB is an attempt at organizing and offloading knowledge from topics that I come across often, but not necessarily use on a daily basis.
+This is my attempt at organizing and offloading knowledge from topics that I come across often, but not necessarily use on a daily basis, or things that I am in the process of learning.
+
+## My Links
+
+[GitHub](https://github.com/ravila4)
+
+[LinkedIn](https://linkedin.com/in/ravila4)
