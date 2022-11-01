@@ -2,7 +2,7 @@
 id: 7bg28rkj42r5n52oxwezco3
 title: Git
 desc: ''
-updated: 1660967855512
+updated: 1664331254573
 created: 1647065150841
 ---
 
@@ -146,6 +146,20 @@ git reset --hard HEAD@{1}
 git config pull.rebase true
 git show --pretty=email <commit> > patch
 git am --committer-date-is-author-date < patch
+```
+
+### Finding things
+
+Find commits that contain a specific string:
+
+```git
+git log -S 'your_search_string' --oneline --name-status
+```
+
+Display the contents of a commit:
+
+```git
+git show <commit>
 ```
 
 ## Undoing Stuff and Fixing Mistakes
