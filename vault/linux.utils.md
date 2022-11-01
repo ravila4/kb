@@ -6,6 +6,24 @@ updated: 1647649361698
 created: 1647065346725
 ---
 
+## grep
+
+### Line context
+
+-A NUM
+: Print n lines of trailing context after each match.
+
+-B NUM
+: Print n lines of leading context before each match.
+
+### Inline context
+Limit the context to N characters before and after the match:
+
+```bash
+grep -o -E ".{0,10}wantedText.{0,10}" input_file
+```
+
+
 ## curl
 
 Pronounced "See URL". Curl is useful for sending HTTP/HTTPS requests.
