@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@dendronhq/dendron-cli": "^0.108.0"
+    "@dendronhq/dendron-cli": "*"
   }
 }
