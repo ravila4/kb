@@ -2,7 +2,7 @@
 id: lkcpotdu9x59v4mh3u6z077
 title: VS Code
 desc: 'How to do some useful things with VS Code'
-updated: 1660081355970
+updated: 1664332501811
 created: 1658941676755
 ---
 
@@ -27,6 +27,88 @@ How to do some useful things with VS Code.
 | `Alt + ↓↑`         | Move the current line up or down. |
 | `F2`               | Rename the current symbol         |
 
+## Debugging
+
+To setup custom debugging, edit the project;s `.vscode/launch.json` file.
+
+### Debug a python module
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "myproject.module_name",
+            "args": [
+                "arg1",
+                "arg2"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
+```
+
+### Debug with a custom bash command
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Bash: Command",
+            "type": "shell",
+            "request": "launch",
+            "command": "your_command",
+            "args": [
+                "arg1",
+                "arg2"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
+```
+Example from mygeneset.info's debug environment:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Web Component",
+            "type": "python",
+            "request": "launch",
+            "program": "index.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--debug"
+            ],
+            "cwd": "${workspaceFolder}/src",
+        },
+        {
+            "name": "Hub",
+            "type": "python",
+            "request": "launch",
+            "module": "bin.hub",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/src",
+        },
+        {
+            "name": "Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+        }
+    ]
+}
+```
+
 ## Testing
 
 ### Configuring testing
@@ -38,6 +120,9 @@ Add to workspace settings.json:
     "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.pytestEnabled": true,
     "python.testing.pytestPath": "pytest"
+    "python.testing.pytestArgs": [
+        "path/to/test/dir",
+    ]
 }
 ```
 
