@@ -1,3 +1,4 @@
+version: 5
 dev:
     enablePreviewV2: true
 commands:
@@ -17,7 +18,8 @@ commands:
         enableMultiSelect: false
     insertNoteIndex:
         enableMarker: false
-    copyNoteLink: {}
+    copyNoteLink:
+        aliasMode: title
     templateHierarchy: template
 workspace:
     vaults:
@@ -72,21 +74,18 @@ workspace:
     maxPreviewsCached: 10
     maxNoteLength: 204800
     enableFullHierarchyNoteTitle: false
-    enableSmartRefs: false
     dendronVersion: 0.108.0
 preview:
     enableFMTitle: true
     enableNoteTitleForLink: true
     enableFrontmatterTags: true
     enableHashesForFMTags: false
-    enableMermaid: true
     enablePrettyRefs: true
     enableKatex: true
     automaticallyShowPreview: false
 publishing:
     enableFMTitle: true
     enableNoteTitleForLink: true
-    enableMermaid: true
     enablePrettyRefs: true
     enableKatex: true
     copyAssets: true
@@ -107,8 +106,8 @@ publishing:
     enableFrontmatterTags: true
     enableHashesForFMTags: false
     enableRandomlyColoredTags: true
-    enablePrettyLinks: true
     enableTaskNotes: true
+    enablePrettyLinks: true
+    searchMode: lookup
     siteUrl: https://ravila4.github.io/
     assetsPrefix: /knowledgebase
-version: 5
