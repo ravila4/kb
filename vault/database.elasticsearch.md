@@ -2,7 +2,7 @@
 id: dh1u6blnzbdsuj0bvpkj86f
 title: Elasticsearch
 desc: ''
-updated: 1662229797157
+updated: 1662235509259
 created: 1647068990225
 ---
 
@@ -36,12 +36,13 @@ curl -XPOST 'http://localhost:9200/_aliases' -d '{
 
 In general, we use the endpoint:
 
-`curl -X GET "localhost:9200/index/_search?pretty"`
+`curl -X GET "localhost:9200/index/_search"`
 
-for example:
+for example (the parameter 'pretty' requires return type `application/json`):
 
 ```bash
-curl -X GET "es8.biothings.io:9200/_search?&pretty" -H 'Content-Type: application/json' -d'
+curl -X GET "es8.biothings.io:9200/my_index/_search?&pretty" \
+-H 'Content-Type: application/json' -d'
 {
   "query": {
     "term": {
@@ -50,9 +51,7 @@ curl -X GET "es8.biothings.io:9200/_search?&pretty" -H 'Content-Type: applicatio
   }
 }
 '
-
 ```
-
 
 ### Insert document
 
