@@ -2,7 +2,7 @@
 id: zxkjp90w6rcw3yg6yrmiitv
 title: Pyspark
 desc: ''
-updated: 1675023776933
+updated: 1675024533761
 created: 1673977835232
 ---
 
@@ -34,6 +34,12 @@ Filter rows to those that are not null
     
 ```python
 df.filter(df.column_name.isNotNull())
+```
+
+Filter based on the length of an array column
+
+```python
+df.filter(size(df.column_name) > 0)
 ```
 
 ## Count unique
