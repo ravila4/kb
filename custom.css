@@ -133,3 +133,7 @@ footer .ant-typography.ant-typography-secondary {
 :root {
   --antd-wave-shadow-color: #b9daff;
 }
+
+::selection {
+  background-color: #00629b;
+}
