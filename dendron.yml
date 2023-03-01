@@ -84,6 +84,7 @@ preview:
     enableKatex: true
     automaticallyShowPreview: false
 publishing:
+    theme: custom
     enableFMTitle: true
     enableNoteTitleForLink: true
     enablePrettyRefs: true
