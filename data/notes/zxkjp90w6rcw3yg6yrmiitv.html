@@ -1,0 +1,71 @@
+<h1 id="pyspark">Pyspark<a aria-hidden="true" class="anchor-heading icon-link" href="#pyspark"></a></h1>
+<h1 id="creating-dataframes">Creating Dataframes<a aria-hidden="true" class="anchor-heading icon-link" href="#creating-dataframes"></a></h1>
+<h2 id="from-a-csv">From a csv<a aria-hidden="true" class="anchor-heading icon-link" href="#from-a-csv"></a></h2>
+<pre class="language-python"><code class="language-python">df <span class="token operator">=</span> spark<span class="token punctuation">.</span>read<span class="token punctuation">.</span>csv<span class="token punctuation">(</span><span class="token string">"data.csv"</span><span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="from-pandas">From pandas<a aria-hidden="true" class="anchor-heading icon-link" href="#from-pandas"></a></h2>
+<pre class="language-python"><code class="language-python">df <span class="token operator">=</span> spark<span class="token punctuation">.</span>createDataFrame<span class="token punctuation">(</span>pandas_df<span class="token punctuation">)</span>
+</code></pre>
+<h1 id="selections">Selections<a aria-hidden="true" class="anchor-heading icon-link" href="#selections"></a></h1>
+<h2 id="selecting-columns">Selecting columns<a aria-hidden="true" class="anchor-heading icon-link" href="#selecting-columns"></a></h2>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="filtering">Filtering<a aria-hidden="true" class="anchor-heading icon-link" href="#filtering"></a></h2>
+<p>Filter rows to those that are not null</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>df<span class="token punctuation">.</span>column_name<span class="token punctuation">.</span>isNotNull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Filter based on the length of an array column</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>size<span class="token punctuation">(</span>df<span class="token punctuation">.</span>column_name<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="count-unique">Count unique<a aria-hidden="true" class="anchor-heading icon-link" href="#count-unique"></a></h2>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>distinct<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h1 id="transformations">Transformations<a aria-hidden="true" class="anchor-heading icon-link" href="#transformations"></a></h1>
+<h2 id="add-a-new-column">Add a new column<a aria-hidden="true" class="anchor-heading icon-link" href="#add-a-new-column"></a></h2>
+<p>With a constant value:</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"new_column"</span><span class="token punctuation">,</span> lit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>From another column:</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"new_column"</span><span class="token punctuation">,</span> df<span class="token punctuation">.</span>column_name <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="udfs">UDFs<a aria-hidden="true" class="anchor-heading icon-link" href="#udfs"></a></h2>
+<p>Create a udf and apply it to a column:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> pyspark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>functions <span class="token keyword">import</span> udf
+<span class="token keyword">from</span> pyspark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>types <span class="token keyword">import</span> IntegerType
+
+<span class="token keyword">def</span> <span class="token function">add_one</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span>
+
+add_one_udf <span class="token operator">=</span> udf<span class="token punctuation">(</span>add_one<span class="token punctuation">,</span> IntegerType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+df<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"new_column"</span><span class="token punctuation">,</span> add_one_udf<span class="token punctuation">(</span>df<span class="token punctuation">.</span>column_name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="groupby-and-aggregate">GroupBy and Aggregate<a aria-hidden="true" class="anchor-heading icon-link" href="#groupby-and-aggregate"></a></h2>
+<p>Aggreagate a dataframe by counting the number of rows in each group:</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Aggreagate a dataframe by counting the number of rows in each group, and sort by count:</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>orderBy<span class="token punctuation">(</span><span class="token string">"count"</span><span class="token punctuation">,</span> ascending<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Aggregate a dataframe by the number of unique values in a column:</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>agg<span class="token punctuation">(</span>countDistinct<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Group a dataframe by a column and aggregate by a udf</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> pyspark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>functions <span class="token keyword">import</span> udf
+<span class="token keyword">from</span> pyspark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>types <span class="token keyword">import</span> IntegerType
+
+<span class="token keyword">def</span> <span class="token function">add_one</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span>
+
+add_one_udf <span class="token operator">=</span> udf<span class="token punctuation">(</span>add_one<span class="token punctuation">,</span> IntegerType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+df<span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>agg<span class="token punctuation">(</span>add_one_udf<span class="token punctuation">(</span><span class="token string">"column_name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="joining">Joining<a aria-hidden="true" class="anchor-heading icon-link" href="#joining"></a></h2>
+<p>Left join two dataframes on two common columns:</p>
+<pre class="language-python"><code class="language-python">df1<span class="token punctuation">.</span>join<span class="token punctuation">(</span>
+    df2<span class="token punctuation">,</span> <span class="token punctuation">[</span>df1<span class="token punctuation">.</span>column_name1 <span class="token operator">==</span> df2<span class="token punctuation">.</span>column_name1<span class="token punctuation">,</span>
+          df1<span class="token punctuation">.</span>column_name2 <span class="token operator">==</span> df2<span class="token punctuation">.</span>column_name2<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"left"</span>
+<span class="token punctuation">)</span>
+</code></pre>
